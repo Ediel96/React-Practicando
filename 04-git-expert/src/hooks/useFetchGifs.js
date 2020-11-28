@@ -20,7 +20,3 @@ export const useFetchGifs = (category) => {
 
     return state;
 }
-
-
-
-
