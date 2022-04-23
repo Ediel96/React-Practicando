@@ -18,7 +18,8 @@ import ReactDOM from 'react-dom/client';
 // import { CallbackHook } from './components/06-memos/CallbackHook';
 
 //Tarea de react sobre Hoo
-import { Padre } from './components/07-tarea-memo/Padre';
+// import { Padre } from './components/07-tarea-memo/Padre';
+import { TodoApp } from './components/08-useReducer/TodoApp';
 
 
 
@@ -29,7 +30,7 @@ const root = ReactDOM.createRoot(document.getElementById('root'));
 root.render(
   <>
     <div className='container'>
-      <Padre />
+      <TodoApp />
     </div>
   </>
 );
