@@ -1,5 +1,6 @@
 import React from 'react';
 import ReactDOM from 'react-dom/client';
+import './index.css';
 
 // import { CounterApp } from './components/01-useState/CounterApp';
 // import { CounterWithCustomHook } from './components/01-useState/CounterWithCustomHook';
@@ -17,7 +18,7 @@ import ReactDOM from 'react-dom/client';
 // import { MemoHook } from './components/06-memos/MemoHook';
 // import { CallbackHook } from './components/06-memos/CallbackHook';
 
-//Tarea de react sobre Hoo
+// Tarea de react sobre Hoo
 // import { Padre } from './components/07-tarea-memo/Padre';
 import { TodoApp } from './components/08-useReducer/TodoApp';
 

@@ -1,12 +1,13 @@
 export const todosReducer = (state = [], action) =>{
 
+    console.log(action)
     switch (action.type) {
-        // case 'add':
+        case 'add':
             
-        //     break;
+            return [...state, action.payload];
     
         default:
-            break;
+            return state;
     }
 
 }

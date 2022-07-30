@@ -17,7 +17,12 @@ export const MultipleCustomHooks = () => {
 
   const {loading, data} = useFecth(`https://www.breakingbadapi.com/api/quotes/${value}`);
 
+  const resp = useFecth(`https://www.breakingbadapi.com/api/quotes/${value}`);
+
+  console.log({resp});
+
   const {author, quote} = !!data && data[0];
+
 
   return (
     <div>
