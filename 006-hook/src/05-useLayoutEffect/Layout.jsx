@@ -1,10 +1,10 @@
 import { useCounter, useFetch } from "../hooks";
-import {LoadingQuote, Quote} from './components'
+import {LoadingQuote, Quote} from '../03-example/components'
 
 
 
 
-export const MultipleCustomHooks = () => {
+export const Layout = () => {
   
   const { counter, decrement, incrementar, reset } = useCounter(1);
 
