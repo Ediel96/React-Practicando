@@ -4,7 +4,7 @@ export  const TodoList = ({ todos = []}) => {
   return (
     <ul className='list-group list-group-flush'>
         {
-            todos.map((todo, i) => (
+            todos.map((todo) => (
                <TodoItems todo={todo}
                            />  
             ))

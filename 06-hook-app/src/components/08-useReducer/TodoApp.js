@@ -7,9 +7,9 @@ import { TodoAdd } from './components/TodoAdd';
 
 const initialState  = [
   {
-    // id: new Date().getTime(),
-    // desc: 'Aprender React',
-    // done: false
+    id: new Date().getTime(),
+    desc: 'Aprender React',
+    done: false
   }
 ]
 
