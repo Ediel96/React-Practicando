@@ -16,20 +16,31 @@ const intialState = [
 
 export const TodoApp = () => {
 
-    const [state, dispatch] = useReducer(todoReducer, intialState)
+    const [todos, dispatch] = useReducer(todoReducer, intialState)
 
   return (
     <>
-        <h1>TodoApp</h1>
+        <h1>TodoApp: 10  pendientes 2</h1>
         <hr />
 
+        <div className="nes-field is-inline">
+            <input type="text" id="dark_field" className="nes-input is-dark" placeholder="dark.css"/>
+        </div>
+
+        <br />
         <ul>
 
-            <li>Item 1</li>
-            <li>Item 2</li>
-            <li>Item 3</li>
+            {/* TodoList  */}
+        {
+            todos.map(todo => (
+                
+                <li key={todo.id}>Item 1 <button type="button" className="nes-btn is-error">Eliminar</button> </li>
+                ))
+        }
+            {/*fin TodoList  */}
 
         </ul>
+        
     </>
   )
 }

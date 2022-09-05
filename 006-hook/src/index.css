@@ -1,5 +1,16 @@
 body {
     padding: 20px;
+    background-color: #0b0b26;
+}
+
+h1, h2, h3, li, p {
+    color: aliceblue;
+
+}
+
+ul{
+    list-style: none;
+   counter-reset: item;
 }
 
 button {
