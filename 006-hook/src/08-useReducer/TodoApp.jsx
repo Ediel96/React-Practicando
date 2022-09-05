@@ -1,4 +1,5 @@
 import React, { useReducer } from 'react'
+import { TodoList } from './TodoList';
 import { todoReducer } from './todoReducer'
 
 
@@ -16,30 +17,41 @@ const intialState = [
 
 export const TodoApp = () => {
 
-    const [todos, dispatch] = useReducer(todoReducer, intialState)
+    const [todos, dispatch] = useReducer(todoReducer, intialState);
+
+    const handleNewTodo = (todo) => {
+        console.log(todo);
+    }
 
   return (
     <>
         <h1>TodoApp: 10  pendientes 2</h1>
         <hr />
 
-        <div className="nes-field is-inline">
-            <input type="text" id="dark_field" className="nes-input is-dark" placeholder="dark.css"/>
+        <div className='row'>
+            <div className='col-7'>
+
+                <TodoList todos={todos}/>
+            </div>
+
+            <div className='col-5'>
+                <h4>Agregar Todo</h4>
+                <hr />
+                <form >
+                    <input 
+                        type="text" 
+                        placeholder='Que hay que hacer?'
+                        className='btn btn-outline-primary mt-1'
+                    />
+
+                    <button 
+                        type='submit'
+                        className='btn btn-outline-primary mt-1'>
+                            Agregar
+                    </button>
+                </form>
+            </div>
         </div>
-
-        <br />
-        <ul>
-
-            {/* TodoList  */}
-        {
-            todos.map(todo => (
-                
-                <li key={todo.id}>Item 1 <button type="button" className="nes-btn is-error">Eliminar</button> </li>
-                ))
-        }
-            {/*fin TodoList  */}
-
-        </ul>
         
     </>
   )
