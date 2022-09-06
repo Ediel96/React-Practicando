@@ -1,4 +1,5 @@
 import React, { useReducer } from 'react'
+import { TodoAdd } from './TodoAdd';
 import { TodoList } from './TodoList';
 import { todoReducer } from './todoReducer'
 
@@ -9,7 +10,7 @@ const intialState = [
         description: 'Recoletar la piedra del alma',
         done: false
     },{
-        id: Math.floor(100000 + Math.random() * 900000),
+        id: new Date().getTime() * 3,
         description: 'Recoletar la piedra del alma',
         done: false
     }
@@ -20,12 +21,17 @@ export const TodoApp = () => {
     const [todos, dispatch] = useReducer(todoReducer, intialState);
 
     const handleNewTodo = (todo) => {
-        console.log(todo);
+        const action = {
+            type:'[TODO] Add Todo',
+            payload:todo
+        }
+
+        dispatch(action)
     }
 
   return (
     <>
-        <h1>TodoApp: 10  pendientes 2</h1>
+        <h1>TodoApp: 10  pendientes 3</h1>
         <hr />
 
         <div className='row'>
@@ -35,7 +41,11 @@ export const TodoApp = () => {
             </div>
 
             <div className='col-5'>
-               <TodoApp/>
+
+                <h4>Agregar Todo</h4>
+                <hr />
+                
+                <TodoAdd onNewTodo={ handleNewTodo }/>
             </div>
         </div>
         
