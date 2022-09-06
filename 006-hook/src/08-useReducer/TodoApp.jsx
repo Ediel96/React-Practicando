@@ -35,21 +35,7 @@ export const TodoApp = () => {
             </div>
 
             <div className='col-5'>
-                <h4>Agregar Todo</h4>
-                <hr />
-                <form >
-                    <input 
-                        type="text" 
-                        placeholder='Que hay que hacer?'
-                        className='btn btn-outline-primary mt-1'
-                    />
-
-                    <button 
-                        type='submit'
-                        className='btn btn-outline-primary mt-1'>
-                            Agregar
-                    </button>
-                </form>
+               <TodoApp/>
             </div>
         </div>
         
