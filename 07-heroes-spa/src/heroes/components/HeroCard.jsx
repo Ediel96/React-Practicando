@@ -25,7 +25,7 @@ export const HeroCard = ({
         <div className='card'>
             
             <div className='row no-gutters'>
-                <div className='col-4'>
+                <div className='col-4 animate__animated animate__fadeIn'>
                     <img src={heroImageUrl} className='card-img' alt={superhero} />
                 </div>
 
@@ -35,8 +35,13 @@ export const HeroCard = ({
                         <p className='card-text'>{ alter_ego }</p>
 
                         {
+                            //Dos formas de hacer
+
                             ( alter_ego !== characters ) && charactersByHero
                         }
+
+                        {/* <CharactersByHeros characters={characters} alter_ego={alter_ego}/> */}
+
 
                         <p className='card-text'>
                             <small className='text-muted'> {first_appearance} </small>
