@@ -10,8 +10,7 @@ export const getPokemons = (page = 0) => {
         // const resp = await fetch(url);
         // const data = await resp.json();
          
-        const resp = await pokemonApi.get(`https://pokeapi.co/api/v2/pokemon?limit=10&offset=${ page * 10 }`);
-        console.log(resp);
+        const { data } = await pokemonApi.get(`/pokemon?limit=10&offset=${ page * 10 }`);
 
         dispatch( setPokemons({ pokemons: data.results, page: page + 1 }) );
     }

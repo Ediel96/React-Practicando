@@ -1,7 +1,7 @@
 import { createSlice } from '@reduxjs/toolkit'
  
 const initialState = {
-    pages: 0,
+    page: 0,
     pokemons: [],
     isLoading: false
 }
@@ -11,10 +11,10 @@ export const pokemonSlice = createSlice({
     initialState,
     reducers: {
         startLoadingPokemon: (state) => {
-            state.isloading = false;
+            state.isLoading = false;
         },
         setPokemons: (state, action) => {
-            console.log(action)
+
             state.isLoading = true;
             state.page = action.payload.page;
             state.pokemons = action.payload.pokemons;
