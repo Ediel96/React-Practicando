@@ -3,7 +3,8 @@
     
     export const AuthLayount = ({children, title = ''}) => {
       return (
-        <Grid container
+        <Grid className='animate__animated animete__fadeIn animete__faster' 
+        container
             spacing={0}
             direction="column"
             alignItems="center"
