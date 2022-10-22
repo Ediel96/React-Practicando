@@ -2,7 +2,7 @@ import { createSlice } from '@reduxjs/toolkit'
  
 const initialState = {
     status: 'ckecking',
-    iud:null,
+    uid:null,
     email:null,
     displayName:null,
     photoURL:null,
@@ -16,7 +16,7 @@ initialState,
 reducers: {
    login: (state, { payload }) => {
         state.status = 'authenticated';
-        state.iud = payload.uid;
+        state.uid = payload.uid;
         state.email = payload.email;
         state.displayName = payload.displayName;
         state.photoURL = payload.photoURL;
@@ -26,7 +26,7 @@ reducers: {
     logout: (state, { payload }) => {
         console.log(payload);
         state.status = 'not-authenticated';
-        state.iud = null;
+        state.uid = null;
         state.email = null;
         state.displayName = null;
         state.photoURL = null;
