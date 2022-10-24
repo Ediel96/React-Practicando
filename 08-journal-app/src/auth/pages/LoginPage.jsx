@@ -7,16 +7,19 @@ import { AuthLayount } from '../Layout'
 import { useForm } from '../../hook'
 import { startGoogleSingIn, startLoginWithEmailPassword } from '../../store/auth'
 
+
+const formData = {
+  email: 'hamilton@email.com',
+  password: '123456'
+}
+
 export const LoginPage = () => {
 
   const { status, errorMessage } = useSelector( state => state.auth);
 
   const dispatch = useDispatch();
   
-  const {email, password, onInputChange, formState} = useForm({
-    email: 'hamilton@email.com',
-    password: '123456'
-  });
+  const {email, password, onInputChange, formState} = useForm(formData);
 
   const isAuthenticating = useMemo( () => status === 'ckecking', [status]);
 
@@ -26,6 +29,7 @@ export const LoginPage = () => {
     //No es esta la accion a despachar
     dispatch(startLoginWithEmailPassword({email, password}));
   }
+
 
   const onGoogleSingIn = () => {
     dispatch(startGoogleSingIn());

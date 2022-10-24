@@ -29,13 +29,24 @@ reducers: {
             state.active = action.payload;
         },
         setNotes:(state, action) => {
-        
+            state.notes = action.payload;
         },
         setSaving:(state) => {
-
+            state.isSaving =  true;
+            // todo : mensaje de error
         },
         updateNote: (state, action) => {
+            state.isSaving = false;
+            state.notes = state.notes.map( note => { 
 
+                if( note.id == action.payload.id){
+                    return action.payload;
+                }
+
+                return note;
+            
+            })
+            //Mostra el mensaje de actualizacion
         },
         deleteNodeById:(state, action) => {
 

@@ -6,6 +6,7 @@ import { onAuthStateChanged } from "firebase/auth"
 import { FirebaseAuth } from "../firebase/config"
 
 import { logout, login } from "../store/auth"
+import { startLoadingNotes } from "../store/journal"
 
 
 export const useCkeckAuth = () => {
@@ -17,8 +18,9 @@ export const useCkeckAuth = () => {
           
           if( !user ) return dispatch( logout({}) );
 
-          const {uid, email, displayName, photoURL} = user;
-        dispatch( login({ uid, email, displayName, photoURL }) )
+        const {uid, email, displayName, photoURL} = user;
+        dispatch( login({ uid, email, displayName, photoURL }) );
+        dispatch( startLoadingNotes() )
   
       } );
       
