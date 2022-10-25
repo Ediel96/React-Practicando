@@ -27,13 +27,14 @@ reducers: {
         },
         setActiveNote:(state, action) => {
             state.active = action.payload;
+            state.messageSeved = '';
         },
         setNotes:(state, action) => {
             state.notes = action.payload;
         },
         setSaving:(state) => {
             state.isSaving =  true;
-            // todo : mensaje de error
+            state.messageSeved = '';
         },
         updateNote: (state, action) => {
             state.isSaving = false;
@@ -46,7 +47,7 @@ reducers: {
                 return note;
             
             })
-            //Mostra el mensaje de actualizacion
+            state.messageSeved = `${action.payload.title}, actualizada correctamente`;
         },
         deleteNodeById:(state, action) => {
 
