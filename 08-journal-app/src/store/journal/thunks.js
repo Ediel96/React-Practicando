@@ -1,10 +1,10 @@
 
 
-import { collection, doc, setDoc } from 'firebase/firestore/lite'
+import { collection, deleteDoc, doc, setDoc } from 'firebase/firestore/lite'
 import { FireBaseDB } from '../../firebase/config';
 import { fileUpload } from '../../helpers';
 import { loadNotes } from '../../helpers/loadNotes';
-import { addNewEmptyNote, setActiveNote, savingNewNote , setNotes, updateNote, setSaving} from './';
+import { addNewEmptyNote, setActiveNote, savingNewNote , setNotes, updateNote, setSaving, setPhotosToActiveNote, deleteNoteById} from './';
 
 
 export const startNewNote = () => {
@@ -64,11 +64,30 @@ export const startUploadingFiles = ( files = []) => {
     return async( dispatch ) => {
         dispatch(setSaving());
 
-        console.log(files);
+        const fileUploadPromises = [];
+        for (const file of files){
+            fileUploadPromises.push(fileUpload(file));
+        }
 
-        await fileUpload(files[0]);
+        const photosUrls = await Promise.all( fileUploadPromises );
 
+        dispatch(setPhotosToActiveNote(photosUrls))
 
     } 
-
 }
+
+export const startDeleteNote = () => {
+
+    return async(dispacth, getState) => {
+
+    const { uid } = getState().auth;
+    const { active:note } = getState().journal; 
+
+    const docRef = doc( FireBaseDB, `${ uid }/journal/notas/${note.id}` );
+    const resp = await deleteDoc(docRef);
+
+    dispacth( deleteNoteById(note.id) )
+
+    }
+
+} 

@@ -1,4 +1,5 @@
 import { sinInWithGoogle, registerUserWithEmailPassword, loginWithEmailPassword, logoutFirebase } from '../../firebase/prividers'
+import { clearNotesLogout } from '../journal';
 import { ckeckingCredentials, logout, login } from "./"
 
 export const ckeckingAuthentication = (email, password) => {
@@ -54,7 +55,7 @@ export const startLogout = () => {
     return async(dispatch) => {
 
         await logoutFirebase();
-
+        dispatch(clearNotesLogout())
         dispatch(logout({}));
 
     }
