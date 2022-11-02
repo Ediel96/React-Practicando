@@ -35,3 +35,20 @@ instalaciion de express validator
 ```
 npm i express-validator
 ```
+
+instalacion de mongo
+
+```
+npm i mongoose
+```
+
+instalacion para incriptacion
+```
+npm i bcryptjs
+```
+
+instalando jwt
+
+```
+npm i jsonwebtoken
+```
