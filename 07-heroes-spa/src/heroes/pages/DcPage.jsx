@@ -1,6 +1,6 @@
 import React from 'react'
 
-export const DcPages = () => {
+export const DcPage = () => {
   return (
     <div>DcPages</div>
   )
