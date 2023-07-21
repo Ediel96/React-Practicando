@@ -1,22 +1,15 @@
-import { Navigate, Route, Routes } from 'react-router-dom'
+import { Route, Routes } from 'react-router-dom';
 
-import { Navbar } from '../ui';
-
-import {  } from "../heroes";
+import { HeroesRoutes } from "../heroes/router/HeroesRoutes";
 import { LoginPage } from '../auth/pages';
 
 export const AppRouter = () => {
   return (
-    <>
-        <Navbar/>
 
-        <Routes>
+    <Routes>
+        <Route path='login' element={ <LoginPage /> } />
+        <Route path='/*' element={ <HeroesRoutes/> } />
+    </Routes>
 
-            <Route path='login' element={ <LoginPage /> } />
-
-
-        </Routes>
-
-    </>
   )
 }
