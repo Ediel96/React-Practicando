@@ -7,20 +7,24 @@ export const LoginPage = () => {
   const {login} = useContext( AuthContext );
   const navigate = useNavigate();
 
-  login('Eddie Avila');
-
   const onLogin = () => {
-    navigate('/', {
-      replace:true
-    })
+
+    const lastPath = localStorage.getItem('lastPath') || '/';
+
+    login( 'Fernando Herrera' );
+
+    navigate( lastPath, {
+      replace: true
+    });
   }
+
 
   return (
     <div className="container mt-5">
       <h1>Login</h1>
       <hr />
 
-      <button
+      <button 
         className="btn btn-primary"
         onClick={ onLogin }
       >

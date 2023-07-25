@@ -10,6 +10,7 @@ export const authReducer = ( state = initialState, action ) => {
 
 
     switch (action.type) {
+
         case types.login:
             return {
                 ...state,
@@ -24,6 +25,7 @@ export const authReducer = ( state = initialState, action ) => {
 
         default:
             return state;
+            
     }
 
 }
